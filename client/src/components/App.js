@@ -1,15 +1,13 @@
 import React from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
+import Dashboard from "./Dashboard";
 import Login from "./Login";
 
 function App() {
   const [id, setId] = useLocalStorage('id');
 
   return (
-    <>
-      <Login setId={setId} />
-      {id}
-    </>
+      id ? <Dashboard id={id} /> : <Login setId={setId} />
   );
 }
 
